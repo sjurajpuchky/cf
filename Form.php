@@ -36,9 +36,11 @@ class Form {
     public function addSelect($fieldName, $label, $dataModel, $required = false) {
         $this->fields[] = new Select($fieldName, $label, $dataModel, $required);
     }
-
+    public function AddFile($fieldName,$label,$required = false) {
+        $this->fields[] = new FormField($fieldName, "file", $label, $required);
+    }
     public function __toString() {
-        $ret = "<table id=\"$this->name\"><form method=\"$this->method\" action=\"$this->action\">";
+        $ret = "<table id=\"$this->name\"><form method=\"$this->method\" action=\"$this->action\" enctype=\"multipart/form-data\">";
         foreach ($this->fields as $field) {
 
             $ret .= $field->__toString();

@@ -36,8 +36,8 @@ class Select {
         $ret .= "<td class=\"formField\">";
 
         $ret .= "<select id=\"" . $this->fieldName . "\" name=\"" . $this->fieldName . "\" type=\"" . $this->fieldType . "\" " . ($this->required ? "required" : "") . ">";
-        foreach($this->dataModel as $key=>$value) {
-            $ret.="<option value=\"$key\">$value</option>";
+        foreach ($this->dataModel as $key => $value) {
+            $ret.="<option value=\"$key\">" . __l($value) . "</option>";
         }
         $ret .= "</select>";
         $ret .= "</td>";

@@ -29,13 +29,13 @@ class Table {
         $ret = "<table class=\"$this->class\">";
         $ret .= "<tr class=\"$this->class\">";
         foreach ($this->head as $h) {
-            $ret .= "<td class=\"$this->class\">$h</td>";
+            $ret .= "<td class=\"$this->class\">" . __l($h) . "</td>";
         }
         $ret .= "</tr>";
         foreach ($this->dataModel as $row) {
             $ret .= "<tr class=\"$this->class\">";
             foreach ($row as $column) {
-                $ret .= "<td class=\"$this->class\">$column</td>";
+                $ret .= "<td class=\"$this->class\">" . __l($column) . "</td>";
             }
             $ret .= "</tr>";
         }
