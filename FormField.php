@@ -8,12 +8,14 @@ class FormField {
     private $fieldType;
     private $label;
     private $required = false;
+    private $default;
 
-    function __construct($fieldName, $fieldType, $label, $required = false) {
+    function __construct($fieldName, $fieldType, $label, $required = false, $default = "") {
         $this->fieldName = $fieldName;
         $this->fieldType = $fieldType;
         $this->label = $label;
         $this->required = $required;
+        $this->default = $default;
     }
 
     public function __toString() {
@@ -32,7 +34,7 @@ class FormField {
                 $ret .= "<input id=\"" . $this->fieldName . "\" name=\"" . $this->fieldName . "\" type=\"" . $this->fieldType . "\" value=\"" . $this->label . "\">";
                 break;
             default:
-                $ret .= "<input id=\"" . $this->fieldName . "\" name=\"" . $this->fieldName . "\" type=\"" . $this->fieldType . "\" " . ($this->required ? "required" : "") . ">";
+                $ret .= "<input id=\"" . $this->fieldName . "\" name=\"" . $this->fieldName . "\" type=\"" . $this->fieldType . "\" " . ($this->required ? "required" : "") . " value=\"" . $this->default . "\">";
         }
         $ret .= "</td>";
         $ret .= "</tr>";

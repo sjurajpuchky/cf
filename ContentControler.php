@@ -11,14 +11,22 @@ class ContentControler {
         $this->baseDir = $baseDir;
     }
 
+    public function addRedir($controlId, $url) {
+        $this->controls[$controlId] = new Redir($url);
+    }
+
     public function addControl($controlId, $fragment) {
         $this->controls[$controlId] = $this->baseDir . "/" . $fragment;
     }
 
     function getContent($control) {
         //var_dump($this->controls[$control]);
-        if (file_exists($this->controls[$control])) {
-            include $this->controls[$control];
+        if ($this->controls[$control] instanceof Redir) {
+            $this->controls[$control]->redir();
+        } else {
+            if (file_exists($this->controls[$control])) {
+                include $this->controls[$control];
+            }
         }
     }
 

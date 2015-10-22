@@ -15,8 +15,10 @@ include_once __DIR__.'/FormField.php';
 include_once __DIR__.'/Select.php';
 include_once __DIR__.'/Form.php';
 include_once __DIR__.'/MenuItem.php';
+include_once __DIR__.'/Redir.php';
 include_once __DIR__.'/Menu.php';
 include_once __DIR__.'/Table.php';
 include_once __DIR__.'/ContentControler.php';
+include_once __DIR__.'/Tools.php';
 
 $pwdb = new cf\Db ();

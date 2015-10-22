@@ -24,9 +24,13 @@ class Menu {
         $this->controler = new ContentControler($baseDir);
     }
 
-    public function addMenuItem($menuId, $label) {
+    public function addMenuItem($menuId, $label, $url = "") {
         $this->menuItems[] = new MenuItem($menuId, $label);
+        if($url === "") {
         $this->controler->addControl($menuId, "$menuId.php");
+        } else {
+            $this->controler->addRedir($menuId,$url);
+        }
     }
 
     public function __toString() {
