@@ -35,7 +35,11 @@ class Table {
         foreach ($this->dataModel as $row) {
             $ret .= "<tr class=\"$this->class\">";
             foreach ($row as $column) {
-                $ret .= "<td class=\"$this->class\">" . __l($column) . "</td>";
+                if (is_array($column)) {
+                    $ret .= "<td class=\"$this->class\"><a href=\"".$column["url"]."\"><img src=\"".$column["image"]."\"></a></td>";
+                } else {
+                    $ret .= "<td class=\"$this->class\">" . __l($column) . "</td>";
+                }
             }
             $ret .= "</tr>";
         }
