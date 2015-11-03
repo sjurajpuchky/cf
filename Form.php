@@ -8,9 +8,11 @@ class Form {
     private $name;
     private $action;
     private $method = "GET";
+    private $onSubmit;
 
-    function __construct($name) {
+    function __construct($name,$onSubmit="") {
         $this->name = $name;
+        $this->onSubmit = $onSubmit;
     }
 
     public function addEmail($fieldName, $label, $required = false, $default = "") {
@@ -46,12 +48,17 @@ class Form {
     }
 
     public function __toString() {
-        $ret = "<table id=\"$this->name\"><form method=\"$this->method\" action=\"$this->action\" enctype=\"multipart/form-data\">";
+        $ret = "<form name=\"$this->name\" method=\"$this->method\" action=\"$this->action\" enctype=\"multipart/form-data\" ";
+        if($this->onSubmit == "") {
+            $ret .= "><table id=\"$this->name\">";
+        } else {
+            $ret .="onsubmit=\"$this->onSubmit\"><table id=\"$this->name\">";
+        }
         foreach ($this->fields as $field) {
 
             $ret .= $field->__toString();
         }
-        $ret .= "</form></table>";
+        $ret .= "</table></form>";
         return $ret;
     }
 

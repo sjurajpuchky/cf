@@ -29,7 +29,7 @@ function loadPropertyFile($fileName) {
         while (!feof($fp)) {
             $line = fgets($fp);
             $rec = explode("=", $line);
-            $lang[$rec[0]] = $rec[1];
+            $lang[$rec[0]] = chop($rec[1]);
         }
         fclose($fp);
     } else {
