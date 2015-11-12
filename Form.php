@@ -15,32 +15,32 @@ class Form {
         $this->onSubmit = $onSubmit;
     }
 
-    public function addEmail($fieldName, $label, $required = false, $default = "") {
-        $this->fields[] = new FormField($fieldName, "email", $label, $required, $default);
+    public function addEmail($fieldName, $label, $required = false, $default = "", $attrs=array()) {
+        $this->fields[] = new FormField($fieldName, "email", $label, $required, $default,$attrs);
     }
 
-    public function addText($fieldName, $label, $required = false, $default = "") {
-        $this->fields[] = new FormField($fieldName, "text", $label, $required, $default);
+    public function addText($fieldName, $label, $required = false, $default = "", $attrs=array()) {
+        $this->fields[] = new FormField($fieldName, "text", $label, $required, $default,$attrs);
     }
 
-    public function addPassword($fieldName, $label, $required = false, $default = "") {
-        $this->fields[] = new FormField($fieldName, "password", $label, $required, $default);
+    public function addPassword($fieldName, $label, $required = false, $default = "", $attrs=array()) {
+        $this->fields[] = new FormField($fieldName, "password", $label, $required, $default,$attrs);
     }
 
-    public function addUrl($fieldName, $label, $required = false, $default = "") {
-        $this->fields[] = new FormField($fieldName, "url", $label, $required, $default);
+    public function addUrl($fieldName, $label, $required = false, $default = "", $attrs=array()) {
+        $this->fields[] = new FormField($fieldName, "url", $label, $required, $default,$attrs);
     }
 
     public function addSubmit($fieldName, $label) {
         $this->fields[] = new FormField($fieldName, "submit", $label);
     }
 
-    public function addSelect($fieldName, $label, $dataModel, $required = false, $default = "") {
-        $this->fields[] = new Select($fieldName, $label, $dataModel, $required, $default);
+    public function addSelect($fieldName, $label, $dataModel, $required = false, $default = "", $attrs=array()) {
+        $this->fields[] = new Select($fieldName, $label, $dataModel, $required, $default,$attrs);
     }
 
-    public function AddFile($fieldName, $label, $required = false) {
-        $this->fields[] = new FormField($fieldName, "file", $label, $required);
+    public function AddFile($fieldName, $label, $required = false, $attrs=array()) {
+        $this->fields[] = new FormField($fieldName, "file", $label, $required,$attrs);
     }
 
     public function AddHidden($fieldName, $default) {
